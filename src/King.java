@@ -8,7 +8,6 @@ public class King extends ChessPiece{
     }
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        boolean isCheck = false;
         if (checkPos(toLine) && checkPos(toColumn) && checkPos(line) && checkPos(column)) {
             if(chessBoard.board[toLine][toColumn] != null) {
                 if (this.color.equals(chessBoard.board[toLine][toColumn].getColor())) return false;
@@ -16,13 +15,6 @@ public class King extends ChessPiece{
             if(!((Math.abs(line-toLine)==1&&column==toColumn)||
                     (Math.abs(column-toColumn)==1&&line==toLine)||
                     (Math.abs(line-toLine)==1&&Math.abs(column-toColumn)==1))) return false;
-//            if(Math.abs(line-toLine)==1&&column==toColumn) {
-//                isCheck=true;
-//            } else if (Math.abs(column-toColumn)==1&&line==toLine) {
-//                isCheck=true;
-//            } else if (Math.abs(line-toLine)==1&&Math.abs(column-toColumn)==1) {
-//                isCheck=true;
-//            }
         }
         return true;
     }
